@@ -11,6 +11,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { initialValuesSchema } from '../../validations/initialValues';
 import { InitialValues } from '../../types/InitialValues';
+import { useAppContext } from '../../contexts/AppContext';
 
 const Adornment = {
   startAdornment: (
@@ -21,6 +22,7 @@ const Adornment = {
 };
 
 const InitialConfiguration: FC = () => {
+  const { setInitialValues } = useAppContext();
   const {
     register,
     handleSubmit,
@@ -31,7 +33,7 @@ const InitialConfiguration: FC = () => {
   });
 
   const onSubmit: SubmitHandler<InitialValues> = (data) =>
-    console.log('data', data);
+    setInitialValues(data);
 
   const onResetFields = () => {
     resetField('carFirstHour');
