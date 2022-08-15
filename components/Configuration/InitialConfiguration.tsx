@@ -36,8 +36,8 @@ const InitialConfiguration: FC = () => {
     setInitialValues(data);
 
   const onResetFields = () => {
-    resetField('carFirstHour');
-    resetField('carMoreHours');
+    resetField('firstHour');
+    resetField('moreHours');
   };
 
   return (
@@ -53,12 +53,12 @@ const InitialConfiguration: FC = () => {
             variant="standard"
             label="1ª hora"
             InputProps={Adornment}
-            {...register('carFirstHour', { min: 0 })}
-            error={!!errors.carFirstHour?.message}
+            {...register('firstHour', { min: 0 })}
+            error={!!errors.firstHour?.message}
           />
-          {errors.carFirstHour?.message && (
+          {errors.firstHour?.message && (
             <Typography variant="caption">
-              {errors.carFirstHour?.message}
+              {errors.firstHour?.message}
             </Typography>
           )}
           <TextField
@@ -67,12 +67,12 @@ const InitialConfiguration: FC = () => {
             variant="standard"
             label="Demais horas"
             InputProps={Adornment}
-            {...register('carMoreHours', { min: 0 })}
-            error={!!errors.carMoreHours?.message}
+            {...register('moreHours', { min: 0 })}
+            error={!!errors.moreHours?.message}
           />
-          {errors.carMoreHours?.message && (
+          {errors.moreHours?.message && (
             <Typography variant="caption">
-              {errors.carMoreHours?.message}
+              {errors.moreHours?.message}
             </Typography>
           )}
         </Stack>
