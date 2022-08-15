@@ -3,14 +3,16 @@ import { Stack, Typography } from '@mui/material';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import InitialConfiguration from '../components/Configuration/InitialConfiguration';
+import DialogNewVehicle from '../components/DialogNewVehicle';
 import { useAppContext } from '../contexts/AppContext';
 
 const Home: NextPage = () => {
   const { initialValues } = useAppContext();
+
   return (
     <>
       <Head>
-        <title>simple parking app</title>
+        <title>Simple Parking app</title>
       </Head>
       <Stack
         width="100%"
@@ -25,7 +27,8 @@ const Home: NextPage = () => {
         </Typography>
         <DepartureBoard fontSize="large" color="secondary" />
       </Stack>
-      {!initialValues?.carFirstHour && <InitialConfiguration />}
+      {!initialValues?.firstHour && <InitialConfiguration />}
+      {initialValues?.firstHour && <DialogNewVehicle />}
     </>
   );
 };
