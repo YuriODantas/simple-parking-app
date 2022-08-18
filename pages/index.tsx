@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import InitialConfiguration from '../components/Configuration/InitialConfiguration';
 import DialogNewVehicle from '../components/DialogNewVehicle';
+import VehiclesParked from '../components/VehiclesParked/VehiclesParked';
 import { useAppContext } from '../contexts/AppContext';
 
 const Home: NextPage = () => {
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
       </Stack>
       {!initialValues?.firstHour && <InitialConfiguration />}
       {initialValues?.firstHour && <DialogNewVehicle />}
+      <VehiclesParked />
     </>
   );
 };
